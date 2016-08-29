@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="">
+      {% if error %}
+          {% if error.message == 'Bad credentials.' %}
+          <div class="container">
+            <div class="row">
+              <div class="card-panel l6 m6 s12 offset-l3 offset-m3" style="text-align: center">
+                <span class="blue-text text-darken-2">Paramètres incorrects, veuillez réessayer!</span>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+      {% endif %}
+    </div>
+    <div class="section white center">
+     <div class="row container">
+       <h4 class="header">Connectez-vous</h4>
+     </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <form class="col s12" action="{{ path('login_check') }}" method="post">
+          <div class="row">
+            <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+              <input id="username" required name="_username" type="text" class="validate" value="{{ last_username }}">
+              <label for="password">Identifiant</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+              <input id="password" required name="_password" type="password" class="validate">
+              <label for="password">Mot de passe</label>
+            </div>
+          </div>
+          <div class="row" style="text-align: center">
+            <button class="btn #448aff blue accent-2" type="submit" name="action">Se connecter
+            </button>
+          </div>
+          <div class="container" style="text-align: center">
+              <a href="#">Mot de passe oublié?</a>
+            </div>
+        </form>
+      </div>
+    </div>
+
+      {# Le formulaire, avec URL de soumission vers la route « login_check » comme on l'a vu
+      <form action="{{ path('login_check') }}" method="post">
+        <label for="username">Identifiant :</label>
+        <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="_password" />
+        <br />
+        <input type="submit" value="Connexion" />
+      </form>#}
+{% endblock %}

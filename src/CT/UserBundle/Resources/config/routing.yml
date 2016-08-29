@@ -1,0 +1,11 @@
+ct_user_homepage:
+    path:     /
+    defaults: { _controller: CTUserBundle:Security:index }
+
+ct_user_loginpage:
+    path:     /login
+    defaults: { _controller: CTUserBundle:Security:login }
+
+ct_user_signinpage:
+    path:     /signin
+    defaults: { _controller: CTUserBundle:Security:signin }

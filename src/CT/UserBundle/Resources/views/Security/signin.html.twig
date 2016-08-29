@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="section white center">
+ <div class="row container">
+   <h4 class="header">Inscrivez-vous</h4>
+ </div>
+</div>
+
+<div class="container">
+  <div class="row">
+     {{ form_start(form, {'attr': {'class': 'col s12'}}) }}
+     {# Les erreurs générales du formulaire. #}
+     {{ form_errors(form) }}
+     <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+     {{ form_errors(form.nom) }}
+     {{ form_label(form.nom, "Nom") }}
+     {{ form_widget(form.nom, {'attr': {'class': 'validate'}}) }}
+     </div>
+     <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+     {{ form_errors(form.prenom) }}
+     {{ form_label(form.prenom, "Prénom") }}
+     {{ form_widget(form.prenom, {'attr': {'class': 'validate'}}) }}
+     </div>
+     <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+     {{ form_errors(form.eMail) }}
+     {{ form_label(form.eMail, "E-mail") }}
+     {{ form_widget(form.eMail, {'attr': {'class': 'validate'}}) }}
+     </div>
+     <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+     {{ form_errors(form.telephone) }}
+     {{ form_label(form.telephone, "Téléphone") }}
+     {{ form_widget(form.telephone, {'attr': {'class': 'validate'}}) }}
+     </div>
+     <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+     {{ form_errors(form.identifiant) }}
+     {{ form_label(form.identifiant, "Identifiant") }}
+     {{ form_widget(form.identifiant, {'attr': {'class': 'validate'}}) }}
+     </div>
+     <div class="input-field col l6 m6 s12 offset-l3 offset-m3">
+     {{ form_errors(form.motDePasse) }}
+     {{ form_label(form.motDePasse, "Mot de passe") }}
+     {{ form_widget(form.motDePasse, {'attr': {'class': 'validate'}}) }}
+     </div>
+   </div>
+     {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+     <div class="row" style="text-align: center">
+     {{ form_widget(form.sInscrire, {'attr': {'class': 'btn #448aff blue accent-2'}}) }}
+     </div>
+     {# Génération automatique des champs pas encore écrits.
+     Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+     et tous les champs cachés (type « hidden »). #}
+     {{ form_rest(form) }}
+
+      {# Fermeture de la balise <form> du formulaire HTML #}
+     {{ form_end(form) }}
+</div>
+
+{% endblock %}
